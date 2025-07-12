@@ -1,0 +1,97 @@
+/* === Auth Page Styling === */
+
+.auth-page {
+  height: 100vh;
+  width: 100%;
+  background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1650&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(2px);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 2rem 2.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.auth-heading {
+  font-size: 1.875rem; /* ≈30px */
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  color: #1f2937; /* neutral-900 */
+}
+
+.auth-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* blue focus ring */
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(to right, #10b981, #34d399); /* emerald-500 → emerald-400 */
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.75rem;
+}
+
+.auth-btn:hover {
+  background: linear-gradient(to right, #059669, #10b981); /* darker emerald */
+  transform: scale(1.02);
+}
+
+.auth-toggle {
+  margin-top: 1.25rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: #2563eb;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.auth-toggle:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* 🌐 Responsive */
+@media (max-width: 480px) {
+  .auth-container {
+    padding: 1.5rem 1.5rem;
+  }
+}
