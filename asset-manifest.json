@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ai-recipe-generator-tracker/static/css/main.166eb5fa.css",
+    "main.js": "/ai-recipe-generator-tracker/static/js/main.bf66a686.js",
+    "static/js/453.a3c1d153.chunk.js": "/ai-recipe-generator-tracker/static/js/453.a3c1d153.chunk.js",
+    "index.html": "/ai-recipe-generator-tracker/index.html",
+    "main.166eb5fa.css.map": "/ai-recipe-generator-tracker/static/css/main.166eb5fa.css.map",
+    "main.bf66a686.js.map": "/ai-recipe-generator-tracker/static/js/main.bf66a686.js.map",
+    "453.a3c1d153.chunk.js.map": "/ai-recipe-generator-tracker/static/js/453.a3c1d153.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.166eb5fa.css",
+    "static/js/main.bf66a686.js"
+  ]
+}
