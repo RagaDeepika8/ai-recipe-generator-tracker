@@ -10,7 +10,14 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
-app.options('*', cors()); // Enable preflight across all routes
+
+// ✅ Optional: Handle preflight
+app.options('*', (req, res) => {
+  res.header('Access-Control-Allow-Origin', 'https://ragadeepika8.github.io');
+  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.sendStatus(200);
+});
 
 app.use(express.json());
 
