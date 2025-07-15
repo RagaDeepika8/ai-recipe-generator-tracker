@@ -105,10 +105,12 @@ const Auth = ({ setIsAuthenticated }) => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
+const API_BASE = 'https://your-render-backend.onrender.com';
   const handleSubmit = async (e) => {
   e.preventDefault();
-  const url = mode === 'login' ? '/api/auth/login' : '/api/auth/register';
+  
+const url = `${API_BASE}/api/auth/${mode}`;
+
 
   try {
     const res = await axios.post(url, form);

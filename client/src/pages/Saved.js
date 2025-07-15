@@ -17,7 +17,7 @@ const Saved = () => {
           return;
         }
 
-        const res = await axios.get('http://localhost:5000/api/recipes/saved', {
+        const res = await axios.get('http://ai-recipe-generator-tracker.onrender.com/api/recipes/saved', {
           headers: {
             Authorization: `Bearer ${token}`
           }

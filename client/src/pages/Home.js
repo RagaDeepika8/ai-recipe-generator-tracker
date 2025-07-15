@@ -27,7 +27,7 @@ const Home = () => {
 
   const saveRecipe = async () => {
     try {
-      await axios.post('http://localhost:5000/api/recipes/save', {
+      await axios.post('http://ai-recipe-generator-tracker.onrender.com/api/recipes/save', {
         title: recipe.title,
         content: recipe.content,
         ingredients: ingredients.split(',').map(i => i.trim())
