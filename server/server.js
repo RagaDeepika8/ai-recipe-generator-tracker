@@ -4,13 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
 const recipeRoutes = require('./routes/recipeRoutes');
-
-
-
-
 const app = express();
 app.use(cors({
-  origin: 'https://RagaDeepika8.github.io',
+  origin: 'https://ragadeepika8.github.io',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
