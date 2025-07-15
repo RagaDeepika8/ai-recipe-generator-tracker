@@ -22,12 +22,13 @@ router.post('/generate', async (req, res) => {
 
   try {
     // 🧠 Try OpenAI
-    const response = await openai.chat.completions.create({
-      model: 'gpt-3.5-turbo',
-      message: [{ role: 'user', content: prompt }],
-      temperature: 0.7,
-      max_tokens: 400,
-    });
+   const response = await openai.chat.completions.create({
+  model: 'gpt-3.5-turbo',
+  messages: [{ role: 'user', content: prompt }], // ✅ Correct key is `messages`
+  temperature: 0.7,
+  max_tokens: 400,
+});
+
 
     const aiContent = response.choices[0].message.content;
     const [titleLine, ...rest] = aiContent.split('\n');
