@@ -3,13 +3,19 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes');
-
+const recipeRoutes = require('./routes/recipeRoutes');
 
 
 
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'https://RagaDeepika8.github.io',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
+app.options('*', cors()); // Enable preflight across all routes
+
 app.use(express.json());
 
 // Connect MongoDB
@@ -19,9 +25,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Basic test route
 app.get("/", (req, res) => res.send("API Running"));
-const recipeRoutes = require('./routes/recipeRoutes');
+
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/auth', authRoutes);
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${process.env.PORT}`);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
