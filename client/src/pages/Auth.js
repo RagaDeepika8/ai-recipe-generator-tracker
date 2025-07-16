@@ -105,7 +105,7 @@ const Auth = ({ setIsAuthenticated }) => {
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-const API_BASE = 'https://your-render-backend.onrender.com';
+const API_BASE = 'https://ai-recipe-generator-tracker.onrender.com';
   const handleSubmit = async (e) => {
   e.preventDefault();
   
