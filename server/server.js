@@ -9,15 +9,7 @@ const recipeRoutes = require('./routes/recipeRoutes');
 const app = express();
 
 // ✅ Enable CORS for GitHub Pages frontend
-app.use(cors({
-  origin: 'https://ragadeepika8.github.io',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true
-}));
-
-// ✅ Optional: Handle preflight requests
-app.options('*', cors());
+app.use(cors());
 
 // ✅ Parse JSON request bodies
 app.use(express.json());
