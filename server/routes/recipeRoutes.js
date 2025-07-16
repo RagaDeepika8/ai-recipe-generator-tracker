@@ -39,15 +39,15 @@ router.post('/generate', async (req, res) => {
   } catch (error) {
     console.warn('OpenAI failed:', error.response?.data || error.message);
 
-  try {
-  const chatResponse = await cohere.chat({
-    model: "command",
-    messages: prompt,
-    temperature: 0.8,
+try {
+  const response = await cohere.generate({
+    model: 'command',
+    prompt,
     max_tokens: 400,
+    temperature: 0.8
   });
 
-  const output = chatResponse.text;
+  const output = response.body.generations[0].text;
   const [titleLine, ...rest] = output.split('\n');
   const title = titleLine.replace(/^Recipe Title:?\s*/i, '').trim();
   const content = rest.join('\n').trim();
@@ -57,6 +57,7 @@ router.post('/generate', async (req, res) => {
   console.error("Cohere failed too:", fallbackError.message);
   return res.status(500).json({ error: "Both AI models failed. Please try again later." });
 }
+
 
   }
 });
