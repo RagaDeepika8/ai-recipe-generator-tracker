@@ -1,31 +1,21 @@
-require('dotenv').config();
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
+const dotenv = require('dotenv');
+const connectDB = require('./db');
 
-const authRoutes = require('./routes/authRoutes');
-const recipeRoutes = require('./routes/recipeRoutes');
+dotenv.config();
 
 const app = express();
 
-// ✅ Enable CORS for GitHub Pages frontend
+// ✅ Allow only your GitHub Pages domain
 app.use(cors());
 
-// ✅ Parse JSON request bodies
 app.use(express.json());
+connectDB();
 
-// ✅ Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+// Routes
+app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/recipes', require('./routes/recipeRoutes'));
 
-// ✅ Routes
-app.get("/", (req, res) => res.send("API Running"));
-app.use('/api/auth', authRoutes);
-app.use('/api/recipes', recipeRoutes);
-
-// ✅ Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
