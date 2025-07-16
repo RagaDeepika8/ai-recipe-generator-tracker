@@ -42,7 +42,7 @@ router.post('/generate', async (req, res) => {
   try {
   const chatResponse = await cohere.chat({
     model: "command",
-    message: prompt,
+    messages: prompt,
     temperature: 0.8,
     max_tokens: 400,
   });
